@@ -1,13 +1,15 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+import cors from "cors"
 import crypto from 'crypto';
 import { analytics, click, create_url, find_url } from './db/util.js';
 import { ShortUrl } from './db/model.js';
 
 export const app = express();
-const port = 3000;
+const port = 5000;
 
 app.use(bodyParser.json());
+app.use(cors())
 
 const generateHash = () => crypto.randomBytes(3).toString('hex');
 
@@ -49,7 +51,7 @@ app.post('/shorten', async (req, res) => {
 		}
 
 		await create_url(originalUrl, shortUrl, expiresAt || null)
-
+		console.log(shortUrl)
 		return res.status(201).json({ url: shortUrl })
 	} catch (error) {
 		console.error(error.message);

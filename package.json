@@ -1,0 +1,48 @@
+{
+  "name": "shortifyapi",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+	"start": "nodemon app.js"
+  },
+  "nodemon": {
+	"watch": [ "*" ],
+	"ext": "js,json",
+	"ignore": ["tests/*"],
+    "exec": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sh1nez/ShortifyAPI.git"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "setupFilesAfterEnv": [
+      "./test/jest.setup.js"
+    ],
+    "testMatch": [
+      "**/test/**/*.test.js"
+    ],
+    "verbose": true,
+    "transform": {}
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/sh1nez/ShortifyAPI/issues"
+  },
+  "homepage": "https://github.com/sh1nez/ShortifyAPI#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^4.21.2",
+    "jest": "^29.7.0",
+    "sequelize": "^6.37.5",
+    "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}

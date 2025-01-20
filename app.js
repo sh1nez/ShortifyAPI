@@ -4,7 +4,7 @@ import crypto from 'crypto';
 import { analytics, click, create_url, find_url } from './db/util.js';
 import { ShortUrl } from './db/model.js';
 
-const app = express();
+export const app = express();
 const port = 3000;
 
 app.use(bodyParser.json());

@@ -24,6 +24,11 @@ app.post('/shorten', async (req, res) => {
 		return res.status(400).json({ error: 'Alias must be 20 characters or less' });
 	}
 
+	const isValidUrl = /^https?:\/\//i.test(originalUrl);
+	if (!isValidUrl) {
+		return res.status(400).json({ error: 'URL must start with http:// or https://' });
+	}
+
 	try {
 		let shortUrl;
 		if (alias) {
